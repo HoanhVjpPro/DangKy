@@ -359,6 +359,13 @@ public class View_DangKy extends javax.swing.JFrame {
         return a;
     }
 
+    public User getForm_user(){
+        String ten = txtHoTen.getText();
+        char[] pass = txtPass.getPassword();
+        User s = new User(ten, String.valueOf(pass));
+        return s;
+    }
+
     private void txtHoTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoTenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHoTenActionPerformed
@@ -375,6 +382,8 @@ public class View_DangKy extends javax.swing.JFrame {
         } if (cbDieuKhoan.isSelected()){
                 Acccount a = getForm();
                 sa.add(a);
+                User s = getForm_user();
+                sa.add_user(s);
                 return;
         } else {
             JOptionPane.showMessageDialog(this, "Bạn chưa đồng ý điều khoản");
