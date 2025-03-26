@@ -32,4 +32,21 @@ public class ServiceAccount {
         }
         return row;
     }
+
+    public int add_user(User a) {
+        ArrayList<Acccount> lists_account = new ArrayList<>();
+        int row = 0;
+        try {
+            String sql = "INSERT INTO Users(full_name, password)\n"
+                    + "VALUES (?, ?)";
+            Connection con = CRUD_DAO.getConnect();
+            PreparedStatement pstm = con.prepareStatement(sql);
+            pstm.setString(1, a.getUsername());
+            pstm.setString(2, a.getPassword());
+            row = pstm.executeUpdate();
+        } catch (Exception e) {
+        }
+        return row;
+
+    }
 }
